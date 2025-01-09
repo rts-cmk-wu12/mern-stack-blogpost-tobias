@@ -1,6 +1,13 @@
+import Post from "../components/Post";
+
 function Index() {
     return (
-        <h1>index</h1>
+        <>
+            <section className="blog">
+                <h2 className="blog__title">Latest Blogs</h2>
+                <Post />
+            </section>
+        </>
     );
 }
 

@@ -1,0 +1,14 @@
+{
+    "title": "A Guide to Danish Cuisine",
+    "author": "John Smith",
+    "published_date": "2025-01-07",
+    "content": "Danish cuisine is known for its simplicity and fresh ingredients. This guide covers traditional dishes such as smørrebrød, frikadeller, and flæskesteg.",
+    "tags": [
+        "food",
+        "Denmark",
+        "cuisine",
+        "recipes"
+    ],
+    "image_url": "path/to/danish_cuisine_image.jpg",
+    "image_alt": "An assortment of traditional Danish dishes"
+}
