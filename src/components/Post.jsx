@@ -1,14 +1,36 @@
-function Post() {
-    return (
-        <article className="blog__post">
+import { Link } from "react-router";
 
-            <h3 className="blog__post-title">Exploring the Wonders of Roskilde</h3>
-            <p className="blog__post-meta">
-                by <span className="blog__post-author">Jane Doe</span>
-                <time className="blog__post-date" dateTime="2025-01-08">08-01-2025</time>
-            </p>
-            <p className="blog__post-content">Roskilde is a city rich in history and culture...</p>
-        </article>
+
+function Post({ posts }) {
+
+
+    async function handleDelete(id) {
+        const response = await fetch(`/api/posts/${id}`, { method: 'DELETE' });
+        if (response.ok) {
+            console.log(`Post with id ${id} deleted`);
+        } else {
+            console.error(`Failed to delete post with id ${id}`);
+        }
+    }
+
+    return (
+        <>
+            {posts.map(({ _id, title, content }) => (
+                <article key={_id} className="blog__post">
+                    <h3 className="blog__post-title">{title}</h3>
+                    {/* <p className="blog__post-meta">
+                    by <span className="blog__post-author">{post.author}</span>
+                    </p> */}
+                    {content.length > 120
+                        ? <p className="blog__post-content">{content.substring(0, 120)}...</p>
+                        : <p className="blog__post-content">{content}</p>
+                    }
+
+                    <Link to={`/details/${_id}`}>Read More</Link>
+                    <button onClick={() => handleDelete(_id)}>delete</button>
+                </article>
+            ))}
+        </>
     );
 }
 
